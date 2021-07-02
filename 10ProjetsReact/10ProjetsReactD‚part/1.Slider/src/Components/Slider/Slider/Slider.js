@@ -39,6 +39,13 @@ export default function Slider() {
     }
   };
 
+  const moveDot = index => {
+    setSlideAnim({
+      index: index,
+      inProgress: false,
+    });
+  };
+
   return (
     <div className="container-slider">
       {dataSlider.map((obj, index) => {
@@ -60,19 +67,16 @@ export default function Slider() {
       <BtnSlider moveSlide={prevSlide} direction={'prev'} />
 
       <div className="container-dots">
-        <div className={slideAnim.index === 1 ? 'dot active' : 'dot'}></div>
-        <button
-          className={slideAnim.index === 2 ? 'dot active' : 'dot'}
-        ></button>
-        <button
-          className={slideAnim.index === 3 ? 'dot active' : 'dot'}
-        ></button>
-        <button
-          className={slideAnim.index === 4 ? 'dot active' : 'dot'}
-        ></button>
-        <button
-          className={slideAnim.index === 5 ? 'dot active' : 'dot'}
-        ></button>
+        {Array.from({ length: 5 }).map((item, index) => {
+          return (
+            <button
+              className={slideAnim.index === index + 1 ? 'dot active' : 'dot'}
+              onClick={() => moveDot(index + 1)}
+            ></button>
+          );
+        })}
+
+        {/* cette methode est plus rapide et plus belle a utiliser on utilse from pour creer un tableau d une longueur de 5 et et on va rechercher les information avec map pour ensuite afficher les elements */}
       </div>
     </div>
   );
