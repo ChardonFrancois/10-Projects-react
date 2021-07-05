@@ -86,9 +86,9 @@ body {
 .btn-slide {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background: #f1f1f1;
 
+  background: #f1f1f1;
+  border: 0;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -134,7 +134,10 @@ body {
   margin: 0 5px;
   background: #f1f1f1;
 }
-.active {
+.dot:hover {
+  background-color: black;
+}
+.active:not(.avtive:hover) {
   background: #ff8b00;
 }
 .ombrage {

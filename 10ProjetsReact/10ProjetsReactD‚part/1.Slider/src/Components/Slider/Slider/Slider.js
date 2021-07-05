@@ -69,14 +69,13 @@ export default function Slider() {
       <div className="container-dots">
         {Array.from({ length: 5 }).map((item, index) => {
           return (
+            /*  on va rechercher les information avec map pour ensuite afficher les elements */
             <button
-              className={slideAnim.index === index + 1 ? 'dot active' : 'dot'}
+              className={slideAnim.index === index + 1 ? 'dot active ' : `dot`}
               onClick={() => moveDot(index + 1)}
             ></button>
           );
         })}
-
-        {/* cette methode est plus rapide et plus belle a utiliser on utilse from pour creer un tableau d une longueur de 5 et et on va rechercher les information avec map pour ensuite afficher les elements */}
       </div>
     </div>
   );
